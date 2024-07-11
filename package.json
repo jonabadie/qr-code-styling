@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kozakdenys/qr-code-styling.git"
+    "url": "git+https://github.com/jonabadie/qr-code-styling.git"
   },
   "keywords": [
     "qr",
@@ -58,10 +58,10 @@
     "logo",
     "design"
   ],
-  "author": "Denys Kozak <kozak.denys.dev@gmail.com>",
+  "author": "Jonathan Abadie",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kozakdenys/qr-code-styling/issues"
+    "url": "https://github.com/jonabadie/qr-code-styling/issues"
   },
-  "homepage": "https://qr-code-styling.com"
+  "homepage": "https://github.com/jonabadie/qr-code-styling"
 }
