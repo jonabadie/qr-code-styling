@@ -51,17 +51,21 @@ export default class QRCornerDot {
 
   _basicSquare(args: BasicFigureDrawArgs): void {
     const { size, x, y } = args;
+    const dotSize = size / 7;
 
-    this._rotateFigure({
-      ...args,
-      draw: () => {
-        this._element = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-        this._element.setAttribute("x", String(x));
-        this._element.setAttribute("y", String(y));
-        this._element.setAttribute("width", String(size));
-        this._element.setAttribute("height", String(size));
-      }
-    });
+    this._element = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    this._element.setAttribute("clip-rule", "evenodd");
+    this._element.setAttribute(
+      "d",
+      `M ${x} ${y + 2.5 * dotSize}` +
+        `v ${2 * dotSize}` +
+        `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${dotSize * 2.5} ${dotSize * 2.5}` +
+        `h ${2 * dotSize}` +
+        `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${dotSize * 2.5} ${-dotSize * 2.5}` +
+        `v ${-2 * dotSize}` +
+        `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${-dotSize * 2.5} ${-dotSize * 2.5}` +
+        `h ${-4.5 * dotSize}`
+    );
   }
 
   _drawDot({ x, y, size, rotation }: DrawArgs): void {
