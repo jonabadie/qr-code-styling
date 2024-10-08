@@ -1,5 +1,5 @@
-import cornerSquareTypes from "../../../constants/cornerSquareTypes";
-import { CornerSquareType, DrawArgs, BasicFigureDrawArgs, RotateFigureArgs } from "../../../types";
+import cornerSquareTypes from "../../constants/cornerSquareTypes";
+import { CornerSquareType, DrawArgs, BasicFigureDrawArgs, RotateFigureArgs } from "../../types";
 
 export default class QRCornerSquare {
   _element?: SVGElement;
@@ -90,34 +90,27 @@ export default class QRCornerSquare {
     const { size, x, y } = args;
     const dotSize = size / 7;
 
-    this._rotateFigure({
-      ...args,
-      draw: () => {
-        this._element = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        this._element.setAttribute("clip-rule", "evenodd");
-        this._element.setAttribute(
-          "d",
-          `M ${x} ${y + 2.5 * dotSize}` +
-            `v ${2 * dotSize}` +
-            `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${dotSize * 2.5} ${dotSize * 2.5}` +
-            `h ${2 * dotSize}` +
-            `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${dotSize * 2.5} ${-dotSize * 2.5}` +
-            `v ${-2 * dotSize}` +
-            `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${-dotSize * 2.5} ${-dotSize * 2.5}` +
-            `h ${-2 * dotSize}` +
-            `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${-dotSize * 2.5} ${dotSize * 2.5}` +
-            `M ${x + 2.5 * dotSize} ${y + dotSize}` +
-            `h ${2 * dotSize}` +
-            `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${dotSize * 1.5} ${dotSize * 1.5}` +
-            `v ${2 * dotSize}` +
-            `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${-dotSize * 1.5} ${dotSize * 1.5}` +
-            `h ${-2 * dotSize}` +
-            `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${-dotSize * 1.5} ${-dotSize * 1.5}` +
-            `v ${-2 * dotSize}` +
-            `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${dotSize * 1.5} ${-dotSize * 1.5}`
-        );
-      }
-    });
+    this._element = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    this._element.setAttribute("clip-rule", "evenodd");
+    this._element.setAttribute(
+      "d",
+      `M ${x} ${y + 2.5 * dotSize}` +
+        `v ${2 * dotSize}` +
+        `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${dotSize * 2.5} ${dotSize * 2.5}` +
+        `h ${2 * dotSize}` +
+        `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${dotSize * 2.5} ${-dotSize * 2.5}` +
+        `v ${-2 * dotSize}` +
+        `a ${2.5 * dotSize} ${2.5 * dotSize}, 0, 0, 0, ${-dotSize * 2.5} ${-dotSize * 2.5}` +
+        `h ${-4.5 * dotSize}` +
+        `M ${x + 2.5 * dotSize} ${y + dotSize}` +
+        `h ${2 * dotSize}` +
+        `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${dotSize * 1.5} ${dotSize * 1.5}` +
+        `v ${2 * dotSize}` +
+        `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${-dotSize * 1.5} ${dotSize * 1.5}` +
+        `h ${-2 * dotSize}` +
+        `a ${1.5 * dotSize} ${1.5 * dotSize}, 0, 0, 1, ${-dotSize * 1.5} ${-dotSize * 1.5}` +
+        `v ${-3.5 * dotSize}`
+    );
   }
 
   _drawDot({ x, y, size, rotation }: DrawArgs): void {
